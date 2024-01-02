@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Case Converter</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .case-converter {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    label {
+      margin-right: 10px;
+    }
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="case-converter">
+  <h2>String Case Converter</h2>
+  <label for="inputString">Enter a string:</label>
+  <textarea id="inputString" rows="4"></textarea>
+
+  <label>Convert to:</label>
+  <button onclick="convertToUppercase()">Uppercase</button>
+  <button onclick="convertToLowercase()">Lowercase</button>
+  <button onclick="convertToCapitalize()">Capitalize</button>
+
+  <label for="outputString">Converted string:</label>
+  <textarea id="outputString" rows="4" readonly></textarea>
+</section>
+
+<script>
+  function convertToUppercase() {
+    var input = document.getElementById('inputString').value;
+    var output = input.toUpperCase();
+    document.getElementById('outputString').value = output;
+  }
+
+  function convertToLowercase() {
+    var input = document.getElementById('inputString').value;
+    var output = input.toLowerCase();
+    document.getElementById('outputString').value = output;
+  }
+
+  function convertToCapitalize() {
+    var input = document.getElementById('inputString').value;
+    var output = input.replace(/\b\w/g, function(char) {
+      return char.toUpperCase();
+    });
+    document.getElementById('outputString').value = output;
+  }
+</script>
+
+</body>
+</html>
